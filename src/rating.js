@@ -26,7 +26,7 @@
             $(v).data('rating', {callback:callback, content:content})
                 .bind('init.rating', $.fn.rating.init)
                 .bind('set.rating', $.fn.rating.set)
-                .bind('hover.rating', $.fn.rating.hover)
+                .bind('mouseenter.rating', $.fn.rating.mouseenter)
                 .trigger('init.rating');
         });
     };
@@ -55,7 +55,7 @@
                 .trigger('set.rating', isChecked);
 
             $('a', el).bind('click', $.fn.rating.click);
-            el.trigger('hover.rating');
+            el.trigger('mouseenter.rating');
         },
         set: function(e, val) {
             var el = $(this),
@@ -80,7 +80,7 @@
 
             return;
         },
-        hover: function(e){
+        mouseenter: function(e){
             var el = $(this),
                 stars = $('a', el);
 
