@@ -24,9 +24,9 @@
         this.each(function(i, v){
 
             $(v).data('rating', {callback:callback, content:content})
-                .bind('init.rating', $.fn.rating.init)
-                .bind('set.rating', $.fn.rating.set)
-                .bind('mouseenter.rating', $.fn.rating.mouseenter)
+                .on('init.rating', $.fn.rating.init)
+                .on('set.rating', $.fn.rating.set)
+                .on('mouseenter.rating', $.fn.rating.mouseenter)
                 .trigger('init.rating');
         });
     };
@@ -54,7 +54,7 @@
                 .append('<div class="stars">' + list + '</div>')
                 .trigger('set.rating', isChecked);
 
-            $('a', el).bind('click', $.fn.rating.click);
+            $('a', el).on('click', $.fn.rating.click);
             el.trigger('mouseenter.rating');
         },
         set: function(e, val) {
@@ -84,7 +84,7 @@
             var el = $(this),
                 stars = $('a', el);
 
-            stars.bind('mouseenter', function(e){
+            stars.on('mouseenter', function(e){
                 // add tmp class when mouse enter
                 $(this)
                     .addClass('tmp_fs')
@@ -95,7 +95,7 @@
                     .addClass('tmp_es');
             });
 
-            stars.bind('mouseleave', function(e){
+            stars.on('mouseleave', function(e){
                 // remove all tmp class when mouse leave
                 $(this)
                     .removeClass('tmp_fs')
