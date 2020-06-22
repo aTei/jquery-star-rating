@@ -51,7 +51,7 @@
             childs.hide();
 
             el
-                .append('<div class="stars">' + list + '</div>')
+                .append('<div class="stars-rating">' + list + '</div>')
                 .trigger('set.rating', isChecked);
 
             $('a', el).on('click', $.fn.rating.click);
